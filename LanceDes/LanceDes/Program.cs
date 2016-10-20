@@ -10,7 +10,9 @@ namespace LanceDes
     {
         static void Main(string[] args)
         {
-            int iNbFaces, iNbDes, iDes, iCompteur;
+            int iDes, iCompteur;
+            int iNbDes = 0;
+            int iNbFaces = 0;
             bool bCheck = true;
             Random rnd = new Random();
 
@@ -19,10 +21,19 @@ namespace LanceDes
                 Console.Clear();
                 try
                 {
-                    Console.WriteLine("Combien de dés voulez-vous lancer?");
-                    iNbDes = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Combien de faces ont vos dès?");
-                    iNbFaces = Convert.ToInt32(Console.ReadLine());
+                    while (iNbFaces < 2)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Combien de dés voulez-vous lancer?");
+                        iNbDes = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Combien de faces ont vos dès?");
+                        iNbFaces = Convert.ToInt32(Console.ReadLine());
+                        if (iNbFaces < 2)
+                        {
+                            Console.WriteLine("!Erreur! Veuilliez retaper.");
+                        }
+                        Console.ReadKey();
+                    }
 
                     for (iCompteur = 0; iCompteur < iNbDes; iCompteur++)
                     {
